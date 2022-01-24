@@ -22,7 +22,8 @@ class SorareAPI(metaclass=SingletonMeta):
 
     def _start_webdriver(self):
         logging.info("SorareAPI: Starting webdriver")
-        firefox_options = Options().add_argument('--headless')
+        firefox_options = Options()
+        firefox_options.headless = True
         return webdriver.Firefox(options=firefox_options)
 
     def get(self, url: str) -> dict:
